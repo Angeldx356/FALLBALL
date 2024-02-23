@@ -1,22 +1,32 @@
-AFRAME.registerComponent('ball', {
-    init: function () {
-        var spawn = document.getElementById('spawner');
-        var position = spawn.getAttribute('position');
+var buttonTiro = document.getElementById('tiro');
 
-        var xd = document.createElement('a-sphere');
-        xd.setAttribute('dynamic-body', '');
-        xd.setAttribute('position', position); // Utiliza la posición del spawner
-        xd.setAttribute('radius', '0.1');
-        xd.setAttribute('color', 'blue');
-        xd.classList.add('ballon');
-        spawn.appendChild(xd); // Agregar el elemento al escenario
-    }
-});
+buttonTiro.addEventListener('click',insertarpelota)
 
-document.addEventListener('DOMContentLoaded', function () {
-    var button = document.getElementById('tiro');
-    button.addEventListener('click', function () {
-        var ballSpawner = document.getElementById('ball-spawner');
-        ballSpawner.components.ball.init(); // Inicializar manualmente el componente ball
-    });
-});
+function insertarpelota(){
+    var barra = document.getElementById('spawner');
+    var positionbarra = barra.getAttribute('position');
+
+    var scene = document.querySelector('a-scene');
+
+    // Crear una esfera
+    var sphere = document.createElement('a-sphere');
+
+    // Establecer atributos para la esfera (posición, color, etc.)
+    sphere.setAttribute('id', 'esferita');
+    sphere.setAttribute('dynamic-body','');
+    sphere.setAttribute('position', positionbarra);
+    sphere.setAttribute('radius', '.2');
+    sphere.setAttribute('color', 'blue');
+    sphere.setAttribute('aabb-collider','');
+
+    // Agregar la esfera a la escena
+    scene.appendChild(sphere);
+
+}
+
+var collia = document.getElementById('a');
+var collib = document.getElementById('b');
+var colibc = document.getElementById('c')
+
+
+
